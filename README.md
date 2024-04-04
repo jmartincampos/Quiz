@@ -6,7 +6,11 @@ To help you become familiar with these tests and give you a chance to apply the 
 
 Considering that this is an even numbered challenge no starter code will be provided.
 
-Mock - Up
+Mock - Up:
+
+<img width="650" alt="Screenshot 2024-04-03 at 8 59 57 PM" src="https://github.com/jmartincampos/Quiz/assets/148412757/c33a1ed9-edcd-4807-a609-e1ff5adfcb33">
+
+
 <img width="700" alt="Screenshot 2024-04-03 at 8 55 13 PM" src="https://github.com/jmartincampos/Quiz/assets/148412757/a320e8d5-ffab-45d6-b1fa-44037715c68b">
 
 User Story:
