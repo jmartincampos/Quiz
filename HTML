@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Quiz</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="'width=device-width", initial-scale="1"/>
+        <link rel="'stylesheet" type="text/css" href="style.css"/>
+    </head>
+
+    <body>
+        <header>
+            <div class="header">
+                <!---view high score to the left-->
+            <div>
+                <button class="button" id="check_score">Highscores</button>
+            </div>
+                <!---Timer-->
+            <div>
+                <p id="timer">Time left: 60s</p>
+            </div>
+            </div>
+        </header>
+
+        <main>
+            <div>
+                <!---Intro-->
+                <section class="intro_page" id="intro_page">
+                    <div id="introduction">
+                        <h1>
+                            Welcome to The Coding Quiz
+                        </h1>
+                        <p id="introduction">
+                            You have 60 seconds to complete this quiz and if you answer incorrectly, 
+                            you will be docked 10 secnds. Ready to test your Coding knowledge?
+                        </p>
+                    <button class="button" id="start">Start Quiz</button>
+                    </div>
+                </section>
+                <section class="questions" id="questions">
+                    <div>
+                    <!---Questions Section-->
+                        <div>
+                        <h2 id="ask_question">Ask the question</h2>
+                        <ul>
+                        <li><button class="choices button" id="answer_btn1">Answer1</button></li>
+                        <li><button class="choices button" id="answer_btn2">Answer2</button></li>
+                        <li><button class="choices button" id="answer_btn3">Answer3</button></li>
+                        <li><button class="choices button" id="answer_btn4">Answer4</button></li>
+                        </ul>
+                    <!---Question Check-->
+                    <div id="check_liine">
+                        <p>Correct or Incorrect</p>
+                    </div>
+                    <!---Submit answers-->
+                    <section class="submit_page" id="submit_page">
+                        <div>
+                            <h2 id="finish">Submit Answers</h2>
+                            <p id="final_score">Your score is:</p>
+                            <p>Enter initials
+                                <input id="initial">
+                                <button class="button" id="submit_btn">Submit</button>
+                            </p>
+                        </div>
+                    </section>
+                    <!---Scoreboard-->
+                    <section class="Scoreboard" id="highscore_page">
+                        <div>
+                            <h2>High Scores</h2>
+                            <div id="score_record">Your Score</div><br><br>
+                        </div>
+                            <button class="button" id="back_bnt">Go Back</button>
+                            <button class="button" id="clear_btn">Clear Highscores</button>
+                    </section>
+                       
+                    </div>
+                    </div>
+
+                </section>
+            </div>
+
+        </main>
+        
+        <footer>
+            <p>Made by Jonathan Campos</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+
+
+
+
+
+
+
+
+
+
+</html>
