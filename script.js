@@ -104,7 +104,6 @@ function startQuiz() {
     // Initialize necessary variables here if needed
 }
 
-// Function to check the answer
 function checkAnswer(event) {
     // Implement answer checking logic here
 }
@@ -126,44 +125,11 @@ function getScore() {
     }
 }
 
-// Function to render score to the score board
 function renderScore() {
-    scoreRecord.innerHTML = "";
-    scoreRecord.style.display = "block";
-    var highScores = sort();
-    var topFive = highScores.slice(0, 5);
-    for (var i = 0; i < topFive.length; i++) {
-        var item = topFive[i];
-        var li = document.createElement("li");
-        li.textContent = item.user + " - " + item.score;
-        li.setAttribute("data-index", i);
-        scoreRecord.appendChild(li);
-    }
-}
-
-// Function to sort score and ranking the highscore list
-function sort() {
-    var unsortedList = getScore();
-    if (unsortedList != null) {
-        unsortedList.sort(function(a, b) {
-            return b.score - a.score;
-        });
-        return unsortedList;
-    }
-}
 
 // Function to push new score and initial to the local storage
 function addItem(n) {
     var addedList = getScore();
     addedList.push(n);
     localStorage.setItem("ScoreList", JSON.stringify(addedList));
-}
-
-function saveScore() {
-    var scoreItem = {
-        user: userInitial.value,
-        score: totalScore // Assuming totalScore is declared and updated elsewhere
-    };
-    addItem(scoreItem);
-    renderScore();
 }
