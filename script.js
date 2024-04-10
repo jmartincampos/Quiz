@@ -56,97 +56,114 @@ var questionSource = [
         question: "Questions 6 : The first index of an array is ____.",
         choices: ["a. 0", "b. 1", "c. 8", "d. any"],
         answer: "a"
-    },
+    }],
     
-    event.preventDefault(),
-    //make it display
-    checkLine.style.display = "block",
-    setTimeout(function () {
-        checkLine.style.display = 'none';
-    }, 1000);
+//startBtn.addEventListener("click", startQuiz);
 
-    // answer check
-    if (questionSource[questionNumber].answer == event.target.value) {
-        checkLine.textContent = "Correct!"; 
-        totalScore = totalScore + 1;
+//reactButtons.forEach(function(btn) {
+   // btn.addEventListener("click", checkAnswer);
+//});//
 
-    } else {
-        secondsLeft = secondsLeft - 10;
-        checkLine.textContent = "Wrong! The correct answer is " + questionSource[questionNumber].answer + " .";
-    }
-         //THEN I am presented with another question
-    if (questionNumber < questionSource.length -1 ) {
-    // call showQuestions to bring in next question when any reactBtn is clicked
-        showQuestion(questionNumber +1);
-    } else {
-    gameOver();
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreBoard.style.display = "none";
+    introPage.style.display = "none";
+    highScorePage.style.display = "block";
+    questionsPage.style.display = "none"; // Corrected variable name
+    saveScore();
+});
+
+scoreCheck.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreBoard.style.display = "none";
+    introPage.style.display = "none";
+    highScorePage.style.display = "block";
+    questionsPage.style.display = "none"; // Corrected variable name
+    renderScore();
+});
+
+backBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreBoard.style.display = "none";
+    introPage.style.display = "block";
+    highScorePage.style.display = "none";
+    questionsPage.style.display = "none"; // Corrected variable name
+    location.reload();
+});
+
+clearBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    localStorage.clear();
+    renderScore();
+});
+
+// Function to start the quiz
+function startQuiz() {
+    introPage.style.display = "none";
+    questionsPage.style.display = "block";
+    // Initialize necessary variables here if needed
 }
 
-    //WHEN all questions are answered or the timer reaches 0, Game is over
+// Function to check the answer
+function checkAnswer(event) {
+    // Implement answer checking logic here
+}
+
+// Function to handle game over
 function gameOver() {
+    questionsPage.style.display = "none";
+    scoreBoard.style.display = "block";
+    // Display final score etc.
+}
 
-        questionPage.style.display = "none";
-        scoreBoard.style.display = "block";
-        console.log(scoreBoard);
-        // show final score
-        finalScore.textContent = "Your final score is :" + totalScore ;
-        // clearInterval(timerInterval);  
-        timeLeft.style.display = "none"; 
-};
-
-// get current score and initials from local storage
-function getScore () {
-    var currentList =localStorage.getItem("ScoreList");
-    if (currentList !== null ){
-        freshList = JSON.parse(currentList);
-        return freshList;
+// Function to get current score and initials from local storage
+function getScore() {
+    var currentList = localStorage.getItem("ScoreList");
+    if (currentList !== null) {
+        return JSON.parse(currentList);
     } else {
-        freshList = [];
+        return [];
     }
-    return freshList;
-};
+}
 
-
-// render score to the score board
-function renderScore () {
+// Function to render score to the score board
+function renderScore() {
     scoreRecord.innerHTML = "";
-    scoreRecord.style.display ="block";
-    var highScores = sort();   
-    // Slice the high score array to only show the top five high scores. 
-    var topFive = highScores.slice(0,5);
+    scoreRecord.style.display = "block";
+    var highScores = sort();
+    var topFive = highScores.slice(0, 5);
     for (var i = 0; i < topFive.length; i++) {
         var item = topFive[i];
-    var li = document.createElement("li");
-    li.textContent = item.user + " - " + item.score;
-    li.setAttribute("data-index", i);
-    scoreRecord.appendChild(li);
+        var li = document.createElement("li");
+        li.textContent = item.user + " - " + item.score;
+        li.setAttribute("data-index", i);
+        scoreRecord.appendChild(li);
     }
-};
+}
 
-// sort score and ranking the highscore list
-function sort () {
+// Function to sort score and ranking the highscore list
+function sort() {
     var unsortedList = getScore();
-    if (getScore == null ){
-        return;
-    } else{
-    unsortedList.sort(function(a,b){
-        return b.score - a.score;
-    })
-    return unsortedList;
-}};
+    if (unsortedList != null) {
+        unsortedList.sort(function(a, b) {
+            return b.score - a.score;
+        });
+        return unsortedList;
+    }
+}
 
-// push new score and initial to the local storage
-function addItem (n) {
+// Function to push new score and initial to the local storage
+function addItem(n) {
     var addedList = getScore();
     addedList.push(n);
     localStorage.setItem("ScoreList", JSON.stringify(addedList));
-};
+}
 
-function saveScore () {
-    var scoreItem ={
+function saveScore() {
+    var scoreItem = {
         user: userInitial.value,
-        score: totalScore
-    }
+        score: totalScore // Assuming totalScore is declared and updated elsewhere
+    };
     addItem(scoreItem);
     renderScore();
 }
