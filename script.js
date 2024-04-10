@@ -81,7 +81,6 @@ var questionSource = [
     } else {
     gameOver();
 }
-questionCount++;
 
     //WHEN all questions are answered or the timer reaches 0, Game is over
 function gameOver() {
@@ -117,7 +116,6 @@ function renderScore () {
     var topFive = highScores.slice(0,5);
     for (var i = 0; i < topFive.length; i++) {
         var item = topFive[i];
-    // Show the score list on score board
     var li = document.createElement("li");
     li.textContent = item.user + " - " + item.score;
     li.setAttribute("data-index", i);
@@ -152,50 +150,3 @@ function saveScore () {
     addItem(scoreItem);
     renderScore();
 }
-
-/* Add event listeners*/
-// startbtn to start the quiz
-startBtn.addEventListener("click", startQuiz);
-
-//click any choices button, go to the next question
-reactButtons.forEach(function(click){
-
-    click.addEventListener("click", checkAnswer);
-});
-
-//save information and go to next page
-submitBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    scoreBoard.style.display = "none";
-    introPage.style.display = "none";
-    highScorePage.style.display = "block";
-    questionPage.style.display ="none";
-    saveScore();
-});
-
-// check highscore ranking list
-scoreCheck.addEventListener("click", function(event) {
-    event.preventDefault();
-    scoreBoard.style.display = "none";
-    introPage.style.display = "none";
-    highScorePage.style.display = "block";
-    questionPage.style.display ="none";
-    renderScore();
-});
-
-//go back to main page
-backBtn.addEventListener("click",function(event){
-        event.preventDefault();
-        scoreBoard.style.display = "none";
-        introPage.style.display = "block";
-        highScorePage.style.display = "none";
-        questionPage.style.display ="none";
-        location.reload();
-});
-
-//clear local storage and clear page shows
-clearBtn.addEventListener("click",function(event) {
-    event.preventDefault();
-    localStorage.clear();
-    renderScore();
-});
