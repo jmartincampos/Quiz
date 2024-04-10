@@ -4,7 +4,7 @@
     <head>
         <title>Quiz</title>
         <meta charset="utf-8"/>
-        <meta name="viewport" content="'width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" type="text/css" href="assets/style.css"/>
     </head>
 
@@ -28,16 +28,16 @@
                 <section class="intro_page" id="intro_page">
                     <div id="introduction">
                         <h1>
-                            Welcome to The Coding Quiz
+                         The Coding Quiz
                         </h1>
                         <p id="introduction">
                             You have 60 seconds to complete this quiz and if you answer incorrectly, 
-                            you will be docked 10 secnds. Ready to test your Coding knowledge?
+                            you will be docked 10 seconds. Ready to test your Coding knowledge?
                         </p>
-                    <button class="button" id="startbtn">Start Quiz</button>
+                    <button class="button" id="start_button">Start Quiz</button>
                     </div>
                 </section>
-                <section class="questions" id="questions">
+                <section class="questions_page" id="questions_page">
                     <div>
                     <!---Questions Section-->
                         <div>
@@ -49,8 +49,9 @@
                         <li><button class="choices button" id="answer_btn4">Answer4</button></li>
                         </ul>
                     <!---Question Check-->
-                    <div id="check_line">
-                        <p>Correct or Incorrect</p>
+                    <div>
+                        <div id="check_line"></div>
+                        <p>Correct or Incorrect</p><br>
                     </div>
                     <!---Submit answers-->
                     <section class="submit_page" id="submit_page">
@@ -64,7 +65,7 @@
                         </div>
                     </section>
                     <!---Scoreboard-->
-                    <section class="Scoreboard" id="highscore_page">
+                    <section class="highscore_page" id="highscore_page">
                         <div>
                             <h2>High Scores</h2>
                             <div id="score_record">Your Score</div><br><br>
@@ -82,7 +83,7 @@
         </main>
         
         <footer>
-            <p>Made by Jonathan Campos</p>
+            <p>Jonathan Campos</p>
         </footer>
         <script src="script.js"></script>
     </body>
