@@ -1,6 +1,8 @@
 * { 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -19,6 +21,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    line-height: 1;
 }
 
 main {
@@ -54,7 +57,10 @@ li {
     margin-bottom: 10px;
 }
 
-.questions_page, .submit_page, .highscore_page, #check_line {
+.questions_page, 
+.submit_page, 
+.highscore_page, 
+#check_line {
     display: none;
 }
 
