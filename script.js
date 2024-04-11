@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function(){
 var welcome = document.querySelector("#introduction");
 var startBtn = document.querySelector("#start_button");
 var introPage = document.querySelector("#intro_page");
@@ -179,7 +180,7 @@ function addItem(n) {
 
 function saveScore() {
     var scoreItem = {
-        user: unserInitial.value,
+        user: userInitial.value,
         score: totalscore
     }
     addItem(scoreItem);
@@ -187,12 +188,12 @@ function saveScore() {
 }
 //event listeners
 
-startBtn.addEventListener("click" , startQuiz); //Starts quiz
-reactButtons.forEach(function(click){ //selection => next question
+startBtn.addEventListener("click" , startQuiz); 
+reactButtons.forEach(function(click){ 
     click.addEventListener("click" , checkAnswer);
 });
 
-submitBtn.addEventListener("click" , function(event) {;  //save info => next page
+submitBtn.addEventListener("click" , function(event) {;
     event.preventDefault();
     scoreBoard.style.display = "none";
     introPage.style.display = "none";
@@ -201,7 +202,7 @@ submitBtn.addEventListener("click" , function(event) {;  //save info => next pag
     saveScore();
 });
 
-scoreCheck.addEventListener("click" , function(event) { //ranking list
+scoreCheck.addEventListener("click" , function(event) {
     event.preventDefault();
     scoreBoard.style.display= "none";
     introPage.style.display = "none";
@@ -210,7 +211,7 @@ scoreCheck.addEventListener("click" , function(event) { //ranking list
     renderScore();
 });
 
-backBtn.addEventListener("click" , function(event) {  //back to main page
+backBtn.addEventListener("click" , function(event) {
     event.preventDefault();
     scoreBoard.style.display = "none";
     introPage.style.display = "block";
@@ -224,3 +225,4 @@ clearBtn.addEventListener("click" , function(event) {
     localStorage.clear();
     renderScore();
 })
+});
